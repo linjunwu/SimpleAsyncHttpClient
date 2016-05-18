@@ -39,7 +39,8 @@ public class GenerateHttpClientUtils {
         final int OPERATION_TIMEOUT = 15000;
         httpURLConnection.setConnectTimeout(OPERATION_TIMEOUT);
         httpURLConnection.setReadTimeout(OPERATION_TIMEOUT);
-        httpURLConnection.setFollowRedirects(false);
+        // 有可能有些会需要重定向
+        HttpURLConnection.setFollowRedirects(true);
         httpURLConnection.setDoInput(true);  
         httpURLConnection.setDoOutput(true); 
         httpURLConnection.setUseCaches(false);

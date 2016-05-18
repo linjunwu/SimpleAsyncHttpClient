@@ -57,8 +57,10 @@ public class SimpleAsyncHttpClient<Params, Progress, Result> extends AsyncTask<P
         try {
             URL url = new URL(mUrl);
             mHttpURLConnection = GenerateHttpClientUtils.getConnection(mContext, url);
+            // todo 不知道为什么当在getConnection中把FollowRedirects设置为false，再此处再次设置为true没有效果？
+            // HttpURLConnection.setFollowRedirects(true);
             mHttpURLConnection.setRequestMethod(mRequestMethod);
-            mAsyncHttpResponseHandler.sendHttpURLConnectionMessage(mHttpURLConnection);
+            mAsyncHttpResponseHandler.sendResponseMessage(mHttpURLConnection);
         } catch (IOException ioException) {
             // TODO: handle exception
             mAsyncHttpResponseHandler.sendFailureMessage(ioException, null);

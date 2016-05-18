@@ -266,7 +266,7 @@ public class AsyncHttpResponseHandler {
         return msg;
     }
     
-    void sendHttpURLConnectionMessage(HttpURLConnection httpURLConnection) {
+    void sendResponseMessage(HttpURLConnection httpURLConnection) {
 
         try {
             InputStream in = httpURLConnection.getInputStream();
